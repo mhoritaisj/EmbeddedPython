@@ -1,4 +1,5 @@
-FROM containers.intersystems.com/intersystems/iris-community-arm64:2021.2.0.651.0
+ARG IMAGE=containers.intersystems.com/intersystems/iris-community-arm64:2021.2.0.651.0
+FROM ${IMAGE}
 
 # Time Zone
 ENV TZ JST-9

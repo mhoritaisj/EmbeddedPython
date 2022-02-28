@@ -11,9 +11,10 @@ ENV LANGUAGE ja_JP:ja
 
 RUN pip3 install pip --upgrade && pip3 install --target /usr/irissys/mgr/python pandas
 
+USER root
 WORKDIR /opt/irisapp
-#RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} /opt/irisapp
-#USER ${ISC_PACKAGE_MGRUSER}
+RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} /opt/irisapp
+USER ${ISC_PACKAGE_MGRUSER}
 
 # Copy source files to image
 COPY . /opt/irisapp

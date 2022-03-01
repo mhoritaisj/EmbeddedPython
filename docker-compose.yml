@@ -23,8 +23,6 @@ services:
     build:
       context: ./postgres
       dockerfile : Dockerfile
-      #args:
-      #  - IRIS_PASSWORD=${IRIS_PASSWORD:-SYS}
     volumes:
       - ./work:/work
     #command: -a "sh /opt/irisapp/server_start.sh"

@@ -7,7 +7,8 @@ df = pd.read_csv('/work/Anime.csv')
 df = df.fillna({'japanese_name':'', 'episodes':0, 'studio':'', 'release_season':'', 'tags':'', 'rating':0.0, 'release_year':0, 'end_year':0, 'description':'', 'content_warning':'', 'related_mange':'', 'related_anime':'', 'voice_actors':'', 'staff':''})
 
 # delete existing records
-iris.sql.exec('delete from anime')
+#iris.sql.exec('delete from anime')
+iris.cls('User.Anime')._DeleteExtent()
 
 # insert by enumerating the dataframe
 start = time.time()
@@ -19,6 +20,6 @@ print('Inserts by enumerating dataframe: %.4fs' % (end-start))
 
 # read by dataframe()
 start = time.time()
-df2 = iris.sql.exec('select type from anime').dataframe()
+df2 = iris.sql.exec('select release_year from anime').dataframe()
 end = time.time()
 print('Reads by dataframe(): %.4fs' % (end-start))

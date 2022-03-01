@@ -31,3 +31,4 @@ to perform the benchmark.
 
 ## Dataset
 
+"Anime DataSet 2022" (https://www.kaggle.com/vishalmane10/anime-dataset-2022) is used for the benchmark.

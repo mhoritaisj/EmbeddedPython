@@ -1,0 +1,35 @@
+version: '3.7'
+services:
+  iris:
+    image: iris-comm-py
+    container_name: iris-comm-py
+    build:
+      context: ./IRIS
+      dockerfile : Dockerfile
+      #args:
+      #  - IRIS_PASSWORD=${IRIS_PASSWORD:-SYS}
+    volumes:
+      - ./work:/work
+    #command: -a "sh /opt/irisapp/server_start.sh"
+    #environment:
+    #  - ISC_CPF_MERGE_FILE=/irisdev/app/merge.cpf
+    ports:
+    - 54773:52773
+    - 53773:1972
+
+  postgres:
+    image: postgres-py
+    container_name: postgres-py
+    build:
+      context: ./postgres
+      dockerfile : Dockerfile
+      #args:
+      #  - IRIS_PASSWORD=${IRIS_PASSWORD:-SYS}
+    volumes:
+      - ./work:/work
+    #command: -a "sh /opt/irisapp/server_start.sh"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+ 
